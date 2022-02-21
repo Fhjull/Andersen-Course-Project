@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ru.dillab.sportdiary.ui.tests.evening.EveningTestViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.tests.evening.EveningTestFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/menu_cards_corner_radius"
+                app:cardElevation="@dimen/menu_cards_elevation"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/menu_cards_content_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_day_productivity_header_text"
+                        android:textSize="@dimen/large_text_font_size" />
+
+                    <RadioGroup
+                        android:id="@+id/evening_test_day_productivity_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/evening_test_day_productivity_yes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.productivity.equals(@string/evening_test_day_productivity_yes_text)}"
+                            android:onClick="@{() -> viewModel.setProductivity(@string/evening_test_day_productivity_yes_text)}"
+                            android:text="@string/evening_test_day_productivity_yes_text" />
+
+                        <RadioButton
+                            android:id="@+id/evening_test_day_productivity_no"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.productivity.equals(@string/evening_test_day_productivity_no_text)}"
+                            android:onClick="@{() -> viewModel.setProductivity(@string/evening_test_day_productivity_no_text)}"
+                            android:text="@string/evening_test_day_productivity_no_text" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/menu_cards_corner_radius"
+                app:cardElevation="@dimen/menu_cards_elevation"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/menu_cards_content_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_goals_header_text"
+                        android:textSize="@dimen/large_text_font_size" />
+
+                    <!-- https://material.io/components/text-fields/android -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/evening_test_goals_edit_text_layout"
+                        style="@style/Widget.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/evening_test_goals_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@={viewModel.goals}"
+                            android:inputType="textMultiLine"
+                            android:minLines="3" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/menu_cards_corner_radius"
+                app:cardElevation="@dimen/menu_cards_elevation"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/menu_cards_content_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_qualities_header_text"
+                        android:textSize="@dimen/large_text_font_size" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/evening_test_quality_strength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_quality_strength_text" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/evening_test_quality_endurance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_quality_endurance_text" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/evening_test_quality_plasticity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_quality_plasticity_text" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/evening_test_quality_coordination"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_quality_coordination_text" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/evening_test_quality_dexterity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_quality_dexterity_text" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/evening_test_quality_technic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/evening_test_quality_technic_text" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/evening_test_finish_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:text="@string/evening_test_finish_button_text" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

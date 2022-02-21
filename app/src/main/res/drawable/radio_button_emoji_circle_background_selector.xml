@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Selecting background color of emoji button in morning test form -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/radio_button_emoji_circle_background_selected" android:state_checked="true" />
+    <item android:drawable="@drawable/radio_button_emoji_circle_background_regular" />
+</selector>

@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Sport Diary</string>
+    <string name="main_menu_fragment_title">Дневник Спортсмена</string>
+    <string name="test_menu_fragment_title">Выберите тест</string>
+    <string name="morning_test_fragment_title">Утренний блок</string>
+    <string name="evening_test_fragment_title">Вечерний блок</string>
+    <string name="results_fragment_title">Результаты</string>
+
+    <string name="main_menu_tests_card_text">Заполнить Дневник</string>
+    <string name="main_menu_results_card_text">Результаты</string>
+    <string name="tests_menu_morning_test_card_text">Утренний тест</string>
+    <string name="tests_menu_evening_test_card_text">Вечерний тест</string>
+
+    <string name="edit_text_max_error_message">Значение слишком большое!</string>
+    <string name="edit_text_min_error_message">Значение слишком маленькое!</string>
+    <string name="edit_text_not_digits_error_message">Поле должно содержать только цифры!</string>
+
+    <string name="morning_test_night_sleep_header_text">Количество сна в часах</string>
+    <string name="morning_test_night_sleep_none_text">Не спал</string>
+    <string name="morning_test_night_sleep_less_2_text">Менее 2 часов</string>
+    <string name="morning_test_night_sleep_2_4_text">2 – 4 часа</string>
+    <string name="morning_test_night_sleep_4_6_text">4 – 6 часов</string>
+    <string name="morning_test_night_sleep_6_8_text">6 – 8 часов</string>
+    <string name="morning_test_night_sleep_8_10_text">8 – 10 часов</string>
+    <string name="morning_test_night_sleep_more_10_text">Более 10 часов</string>
+
+    <string name="morning_test_pulse_header_text">Утренний пульс лежа после пробуждения</string>
+
+    <string name="morning_test_muscle_pain_header_text">Мониторинг мышечной боли</string>
+    <string name="morning_test_muscle_pain_none_text">0</string>
+    <string name="morning_test_muscle_pain_1_text">1</string>
+    <string name="morning_test_muscle_pain_2_text">2</string>
+    <string name="morning_test_muscle_pain_3_text">3</string>
+    <string name="morning_test_muscle_pain_4_text">4</string>
+    <string name="morning_test_muscle_pain_5_text">5</string>
+    <string name="evening_test_day_productivity_header_text">Считаешь ли ты, что твой день в целом прошёл продуктивно?</string>
+    <string name="evening_test_day_productivity_yes_text">Да</string>
+    <string name="evening_test_day_productivity_no_text">Нет</string>
+    <string name="evening_test_goals_header_text">Что сегодня было на тренировках? Какие цели и задачи были выполнены, а какие нет?</string>
+    <string name="evening_test_qualities_header_text">Развитию каких качеств ты уделил внимание сегодня?</string>
+    <string name="evening_test_quality_strength_text">Сила</string>
+    <string name="evening_test_quality_endurance_text">Выносливость</string>
+    <string name="evening_test_quality_plasticity_text">Гибкость</string>
+    <string name="evening_test_quality_coordination_text">Координация</string>
+    <string name="evening_test_quality_dexterity_text">Ловкость</string>
+    <string name="evening_test_quality_technic_text">Техника</string>
+    <string name="evening_test_finish_button_text">Записать ответы</string>
+
+
+</resources>

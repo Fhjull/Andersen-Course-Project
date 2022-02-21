@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_text_font_size">22sp</dimen>
+    <dimen name="large_text_font_size">18sp</dimen>
+    <dimen name="small_text_font_size">12sp</dimen>
+
+    <dimen name="menu_cards_corner_radius">10dp</dimen>
+    <dimen name="menu_cards_elevation">8dp</dimen>
+    <dimen name="menu_cards_content_padding">10dp</dimen>
+
+    <dimen name="page_padding">8dp</dimen>
+
+    <dimen name="form_field_height">48dp</dimen>
+    <dimen name="space_between_forms">10dp</dimen>
+    <dimen name="space_between_radio_groups">4dp</dimen>
+    <dimen name="space_between_emojis">8dp</dimen>
+    <dimen name="food_text_start_margin">20dp</dimen>
+    <dimen name="food_radio_group_end_margin">50dp</dimen>
+    <dimen name="border_box_width">150dp</dimen>
+
+    <dimen name="text_padding">5dp</dimen>
+</resources>

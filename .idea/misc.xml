@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/border_box.xml" value="0.103" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/ic_error.xml" value="0.103" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_box_regular.xml" value="0.122" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_box_selected.xml" value="0.122" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_box_selector.xml" value="0.122" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_box_text_color_selector.xml" value="0.103" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_emoji_circle_background_regular.xml" value="0.103" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_emoji_circle_background_selected.xml" value="0.122" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/drawable/radio_button_emoji_circle_background_selector.xml" value="0.103" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/activity_main.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/fragment_evening_test.xml" value="0.1838768115942029" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/fragment_main.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/fragment_morning_test.xml" value="0.264" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/fragment_results.xml" value="0.1933876811594203" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/fragment_tests_menu.xml" value="0.16259057971014493" />
+        <entry key="..\:/Users/dilla/AndroidStudioProjects/SportDiary/app/src/main/res/layout/results_item.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

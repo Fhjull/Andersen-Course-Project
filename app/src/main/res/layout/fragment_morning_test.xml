@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ru.dillab.sportdiary.ui.tests.morning.MorningTestViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.tests.morning.MorningTestFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/menu_cards_corner_radius"
+                app:cardElevation="@dimen/menu_cards_elevation"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/menu_cards_content_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/morning_test_night_sleep_header_text"
+                        android:textSize="@dimen/large_text_font_size" />
+
+                    <RadioGroup
+                        android:id="@+id/morning_test_night_sleep_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_none"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_none_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_none_text)}"
+                            android:text="@string/morning_test_night_sleep_none_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_less_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_less_2_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_less_2_text)}"
+                            android:text="@string/morning_test_night_sleep_less_2_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_2_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_2_4_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_2_4_text)}"
+                            android:text="@string/morning_test_night_sleep_2_4_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_4_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_4_6_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_4_6_text)}"
+                            android:text="@string/morning_test_night_sleep_4_6_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_6_8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_6_8_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_6_8_text)}"
+                            android:text="@string/morning_test_night_sleep_6_8_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_8_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_8_10_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_8_10_text)}"
+                            android:text="@string/morning_test_night_sleep_8_10_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_night_sleep_more_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.sleep.equals(@string/morning_test_night_sleep_more_10_text)}"
+                            android:onClick="@{() -> viewModel.setSleepHours(@string/morning_test_night_sleep_more_10_text)}"
+                            android:text="@string/morning_test_night_sleep_more_10_text" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/menu_cards_corner_radius"
+                app:cardElevation="@dimen/menu_cards_elevation"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/menu_cards_content_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/morning_test_pulse_header_text"
+                        android:textSize="@dimen/large_text_font_size" />
+
+                    <!-- https://material.io/components/text-fields/android -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/morning_test_pulse_edit_text_layout"
+                        style="@style/Widget.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minWidth="100dp"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:helperTextTextAppearance="@style/TextAppearance.MaterialComponents.Subtitle1">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/morning_test_pulse_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:text="@={viewModel.pulse}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/menu_cards_corner_radius"
+                app:cardElevation="@dimen/menu_cards_elevation"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/menu_cards_content_padding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/morning_test_muscle_pain_header_text"
+                        android:textSize="@dimen/large_text_font_size" />
+
+                    <RadioGroup
+                        android:id="@+id/morning_test_muscle_pain_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/morning_test_muscle_pain_none"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.musclePain.equals(@string/morning_test_muscle_pain_none_text)}"
+                            android:onClick="@{() -> viewModel.setMusclePain(@string/morning_test_muscle_pain_none_text)}"
+                            android:text="@string/morning_test_muscle_pain_none_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_muscle_pain_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.musclePain.equals(@string/morning_test_muscle_pain_1_text)}"
+                            android:onClick="@{() -> viewModel.setMusclePain(@string/morning_test_muscle_pain_1_text)}"
+                            android:text="@string/morning_test_muscle_pain_1_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_muscle_pain_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.musclePain.equals(@string/morning_test_muscle_pain_2_text)}"
+                            android:onClick="@{() -> viewModel.setMusclePain(@string/morning_test_muscle_pain_2_text)}"
+                            android:text="@string/morning_test_muscle_pain_2_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test_muscle_pain_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.musclePain.equals(@string/morning_test_muscle_pain_3_text)}"
+                            android:onClick="@{() -> viewModel.setMusclePain(@string/morning_test_muscle_pain_3_text)}"
+                            android:text="@string/morning_test_muscle_pain_3_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test__muscle_pain_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.musclePain.equals(@string/morning_test_muscle_pain_4_text)}"
+                            android:onClick="@{() -> viewModel.setMusclePain(@string/morning_test_muscle_pain_4_text)}"
+                            android:text="@string/morning_test_muscle_pain_4_text" />
+
+                        <RadioButton
+                            android:id="@+id/morning_test__muscle_pain_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.musclePain.equals(@string/morning_test_muscle_pain_5_text)}"
+                            android:onClick="@{() -> viewModel.setMusclePain(@string/morning_test_muscle_pain_5_text)}"
+                            android:text="@string/morning_test_muscle_pain_5_text" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/morning_test_finish_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:text="Записать ответы" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
