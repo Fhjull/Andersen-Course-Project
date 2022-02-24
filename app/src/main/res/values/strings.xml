@@ -49,4 +49,13 @@
     <string name="evening_test_quality_technic_text">Техника</string>
     <string name="evening_test_finish_button_text">Записать ответы</string>
 
+    <string name="item_morning_unit">Утренний блок:\n%s</string>
+    <string name="item_evening_unit">Вечерний блок:\n%s</string>
+    <string name="item_night_sleep_text">Ночной сон:\n%s</string>
+    <string name="item_pulse_text">Пульс:\n%s</string>
+    <string name="item_muscle_pain_text">Мышечная боль:\n%s</string>
+    <string name="item_productivity_text">Был ли день продуктивным:\n%s</string>
+    <string name="item_goals_text">Цели и задачи:\n%s</string>
+    <string name="item_qualities_text">Развитие качеств:\n%s</string>
+
 </resources>

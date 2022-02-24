@@ -1,7 +1,5 @@
 package ru.dillab.sportdiary.domain.use_case
 
-import android.util.Log
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import ru.dillab.sportdiary.domain.model.MorningResult
 import ru.dillab.sportdiary.domain.repository.DayResultRepository

@@ -11,99 +11,59 @@
     app:cardUseCompatPadding="true"
     app:contentPadding="@dimen/menu_cards_content_padding">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/morning_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="02.02.22 11:05:11" />
+
+        <TextView
+            android:id="@+id/sleep_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="6 - 8 часов" />
+
+        <TextView
+            android:id="@+id/pulse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="67" />
+
+        <TextView
+            android:id="@+id/muscle_pain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="1" />
 
         <TextView
             android:id="@+id/evening_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/productivity"
             tools:text="02.02.22 18:05:23" />
 
         <TextView
-            android:id="@+id/sleep_hours"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintBottom_toTopOf="@id/pulse"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/morning_time"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="6 - 8 часов" />
-
-        <TextView
-            android:id="@+id/pulse"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintBottom_toTopOf="@id/muscle_pain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/morning_time"
-            app:layout_constraintTop_toBottomOf="@id/sleep_hours"
-            tools:text="67" />
-
-        <TextView
-            android:id="@+id/muscle_pain"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintBottom_toTopOf="@id/productivity"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/morning_time"
-            app:layout_constraintTop_toBottomOf="@id/pulse"
-            tools:text="1" />
-
-        <TextView
             android:id="@+id/productivity"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintBottom_toTopOf="@id/goals"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/morning_time"
-            app:layout_constraintTop_toBottomOf="@id/muscle_pain"
             tools:text="Да" />
 
         <TextView
             android:id="@+id/goals"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintBottom_toTopOf="@id/qualities"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/morning_time"
-            app:layout_constraintTop_toBottomOf="@id/productivity"
             tools:text="Размялся, позанимался на концепте, потом прошел три круга упражнений в зале. Под конец растяжка." />
 
         <TextView
             android:id="@+id/qualities"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@id/morning_time"
-            app:layout_constraintTop_toBottomOf="@id/goals"
             tools:text="Сила, Выносливость, Скоростная выносливость" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

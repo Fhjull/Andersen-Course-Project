@@ -1,5 +1,6 @@
 package ru.dillab.sportdiary.data.local.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ru.dillab.sportdiary.domain.model.MorningResult
@@ -7,10 +8,10 @@ import ru.dillab.sportdiary.domain.model.MorningResult
 @Entity(tableName = "morning_results")
 data class MorningResultEntity(
     @PrimaryKey val id: Int,
-    val morningTime: Long,
-    val sleepHours: String? = null,
-    val pulse: String? = null,
-    val musclePain: String? = null,
+    @ColumnInfo(name = "morning_time") val morningTime: Long,
+    @ColumnInfo(name = "sleep_hours") val sleepHours: String? = null,
+    @ColumnInfo(name = "pulse") val pulse: String? = null,
+    @ColumnInfo(name = "muscle_pain") val musclePain: String? = null,
 ) {
     fun toMorningResult(): MorningResult {
         return MorningResult(

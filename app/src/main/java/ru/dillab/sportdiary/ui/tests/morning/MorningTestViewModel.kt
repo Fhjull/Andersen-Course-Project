@@ -28,8 +28,6 @@ class MorningTestViewModel @Inject constructor(
     val musclePain: StateFlow<String?> = _musclePain
 
     init {
-        // useCases.getDataFromServer()
-
         viewModelScope.launch {
             useCases.getTodaysMorningResult().collect {
                 _sleepHours.value = it?.sleepHours

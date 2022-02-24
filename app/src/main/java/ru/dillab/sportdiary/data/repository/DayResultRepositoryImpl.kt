@@ -1,12 +1,12 @@
 package ru.dillab.sportdiary.data.repository
 
-import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import retrofit2.HttpException
 import ru.dillab.sportdiary.data.local.DayResultDao
 import ru.dillab.sportdiary.data.remote.DayResultsApi
+import ru.dillab.sportdiary.data.remote.dto.MorningAndEveningResults
 import ru.dillab.sportdiary.domain.model.DayResult
 import ru.dillab.sportdiary.domain.model.EveningResult
 import ru.dillab.sportdiary.domain.model.MorningResult
@@ -23,9 +23,10 @@ class DayResultRepositoryImpl(
         // Start loading - display progress bar
         emit(ServerState.Loading())
 
-        val dayResults = dao.getDayResults()
+        val morningResults = dao.getMorningResults()
+        val eveningResults = dao.getEveningResults()
+        val dayResults = MorningAndEveningResults(morningResults, eveningResults).toDayResults()
         emit(ServerState.Loading(data = dayResults))
-        Log.d("testing", "ServerState.Loading(data = $dayResults)")
 
         // Get data from API
         try {
@@ -42,31 +43,40 @@ class DayResultRepositoryImpl(
                 remoteDayResults.convertToResultsList().eveningResults
             )
 
+            // Update data from database
+            val newMorningResults = dao.getMorningResults()
+            val newEveningResults = dao.getEveningResults()
+            val newDayResults =
+                MorningAndEveningResults(newMorningResults, newEveningResults).toDayResults()
+            // Set server status to Success
+            emit(ServerState.Success(data = newDayResults))
+
             // catch invalid response
         } catch (e: HttpException) {
-            Log.d("testing", "DayResultRepositoryImpl HttpException")
-            emit(ServerState.Error(message = e.message ?: "HttpException"))
+            emit(
+                ServerState.Error(
+                    data = dayResults,
+                    message = e.message ?: "HttpException"
+                )
+            )
 
             // catch when parsing went wrong or server not reachable or we don't have internet connection
         } catch (e: IOException) {
-            Log.d("testing", "DayResultRepositoryImpl IOException")
-            emit(ServerState.Error(message = e.message ?: "IOException"))
+            emit(
+                ServerState.Error(
+                    data = dayResults,
+                    message = e.message ?: "IOException"
+                )
+            )
         }
-
-        val newDayResults = dao.getDayResults()
-        // Set server status to Success
-        emit(ServerState.Success(data = newDayResults))
-        Log.d("testing", "ServerState.Success($newDayResults)")
     }
 
-    // override fun getDayResults(): Flow<List<DayResult>> {
-    //     return dao.getDayResults()
-    // }
-
+    // TODO Implement ServerState here
     override fun getMorningResultById(id: Int): Flow<MorningResult?> {
         return dao.getMorningResultById(id).map { it?.toMorningResult() }
     }
 
+    // TODO Implement ServerState here
     override fun getEveningResultById(id: Int): Flow<EveningResult?> {
         return dao.getEveningResultById(id).map { it?.toEveningResult() }
     }

@@ -8,8 +8,6 @@ import ru.dillab.sportdiary.utils.ServerState
 
 interface DayResultRepository {
 
-    // fun getDataFromServer(): Flow<ServerState>
-
     fun getDayResults(): Flow<ServerState<List<DayResult>>>
 
     fun getMorningResultById(id: Int): Flow<MorningResult?>
