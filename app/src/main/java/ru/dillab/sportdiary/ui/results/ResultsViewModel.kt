@@ -1,51 +1,44 @@
 package ru.dillab.sportdiary.ui.results
 
 import android.util.Log
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import ru.dillab.sportdiary.data.local.entity.DayResultEntity
-import ru.dillab.sportdiary.data.local.DayResultDao
 import ru.dillab.sportdiary.domain.model.DayResult
-import ru.dillab.sportdiary.domain.use_case.GetDayResults
-import ru.dillab.sportdiary.utils.Resource
+import ru.dillab.sportdiary.domain.use_case.DayResultUseCases
+import ru.dillab.sportdiary.utils.ServerState
 import javax.inject.Inject
 
 @HiltViewModel
-class ResultsViewModel @Inject constructor(private val getDayResults: GetDayResults) : ViewModel() {
+class ResultsViewModel @Inject constructor(private val useCases: DayResultUseCases) : ViewModel() {
 
-    private val _dayResults = MutableLiveData<List<DayResult>>()
-    val dayResults: LiveData<List<DayResult>> = _dayResults
+    private val _dayResults = MutableStateFlow<List<DayResult>>(emptyList())
+    val dayResults: StateFlow<List<DayResult>> = _dayResults
+
+    private val _statusBar = MutableStateFlow("")
+    val statusBar: StateFlow<String> = _statusBar
 
     init {
-        Log.d("test", "init viewModel")
-        loadDayResults()
-    }
-
-    private fun loadDayResults() {
-        Log.d("test", "loadDayResults()")
         viewModelScope.launch {
-            Log.d("test", "viewModelScope.launch")
-            getDayResults().onEach { result ->
-                Log.d("test", "getDayResults().onEach $result")
+            useCases.getDayResults().onEach { result ->
                 when (result) {
-                    is Resource.Loading -> {
-                        Log.d("test", "Resource.Loading")
+                    is ServerState.Loading -> {
+                        Log.d("testing", "ServerState.Success")
                         _dayResults.value = result.data ?: emptyList()
+                        _statusBar.value = "Загружаю данные"
                     }
-                    is Resource.Error -> {
-                        Log.d("test", "Resource.Error")
+                    is ServerState.Error -> {
+                        Log.d("testing", "ServerState.Success")
                         _dayResults.value = result.data ?: emptyList()
+                        _statusBar.value = result.message ?: "Ошибка"
                     }
-                    is Resource.Success -> {
-                        Log.d("test", "Resource.Success")
+                    is ServerState.Success -> {
+                        Log.d("testing", "ServerState.Success")
                         _dayResults.value = result.data ?: emptyList()
+                        Log.d("testing", "${result.data}")
+                        _statusBar.value = "Данные обновлены"
                     }
                 }
             }.launchIn(this)

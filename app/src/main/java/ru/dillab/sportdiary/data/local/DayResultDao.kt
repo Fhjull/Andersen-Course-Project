@@ -4,25 +4,36 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-import ru.dillab.sportdiary.data.local.entity.DayResultEntity
+import ru.dillab.sportdiary.data.local.entity.EveningResultEntity
+import ru.dillab.sportdiary.data.local.entity.MorningResultEntity
+import ru.dillab.sportdiary.domain.model.DayResult
 
 @Dao
 interface DayResultDao {
 
     @Insert(onConflict = REPLACE)
-    suspend fun insert(dayResult: DayResultEntity)
+    suspend fun insertAll(
+        morningResults: List<MorningResultEntity>,
+        eveningResults: List<EveningResultEntity>
+    )
 
     @Insert(onConflict = REPLACE)
-    suspend fun insertAll(listOfDayResults: List<DayResultEntity>)
+    suspend fun insertMorningResult(morningResult: MorningResultEntity)
 
-    @Update
-    suspend fun update(dayResult: DayResultEntity): Int
+    @Insert(onConflict = REPLACE)
+    suspend fun insertEveningResult(eveningResult: EveningResultEntity)
 
-    @Query("SELECT * FROM day_results ORDER BY id DESC")
-    suspend fun getDayResults(): List<DayResultEntity>
+    @Query(
+        "SELECT * FROM morning_results LEFt JOIN evening_results USING(id) " +
+                "UNION ALL SELECT * FROM evening_results LEFt JOIN morning_results USING(id) " +
+                "WHERE morning_results.id IS NULL ORDER BY id DESC"
+    )
+    suspend fun getDayResults(): List<DayResult>
 
-    @Query("SELECT * FROM day_results WHERE id = :id")
-    suspend fun getById(id: Int): DayResultEntity
+    @Query("SELECT * FROM morning_results WHERE id = :id")
+    fun getMorningResultById(id: Int): Flow<MorningResultEntity?>
+
+    @Query("SELECT * FROM evening_results WHERE id = :id")
+    fun getEveningResultById(id: Int): Flow<EveningResultEntity?>
 }

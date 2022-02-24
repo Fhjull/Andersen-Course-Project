@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="ru.dillab.sportdiary.ui.main.MainFragment"
-        android:label="MainFragment" >
+        android:label="@string/main_menu_fragment_title" >
         <action
             android:id="@+id/action_mainFragment_to_testsMenuFragment"
             app:destination="@id/testsMenuFragment" />
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/testsMenuFragment"
         android:name="ru.dillab.sportdiary.ui.tests.menu.TestsMenuFragment"
-        android:label="TestsMenuFragment" >
+        android:label="@string/test_menu_fragment_title" >
         <action
             android:id="@+id/action_testsMenuFragment_to_morningTestFragment"
             app:destination="@id/morningTestFragment" />
@@ -30,7 +30,7 @@
     <fragment
         android:id="@+id/morningTestFragment"
         android:name="ru.dillab.sportdiary.ui.tests.morning.MorningTestFragment"
-        android:label="fragment_morning_test"
+        android:label="@string/morning_test_fragment_title"
         tools:layout="@layout/fragment_morning_test" >
         <action
             android:id="@+id/action_morningTestFragment_to_resultsFragment"
@@ -40,7 +40,7 @@
     <fragment
         android:id="@+id/eveningTestFragment"
         android:name="ru.dillab.sportdiary.ui.tests.evening.EveningTestFragment"
-        android:label="EveningTestFragment" >
+        android:label="@string/evening_test_fragment_title" >
         <action
             android:id="@+id/action_eveningTestFragment_to_resultsFragment"
             app:destination="@id/resultsFragment"
@@ -49,6 +49,6 @@
     <fragment
         android:id="@+id/resultsFragment"
         android:name="ru.dillab.sportdiary.ui.results.ResultsFragment"
-        android:label="fragment_results"
+        android:label="@string/results_fragment_title"
         tools:layout="@layout/fragment_results" />
 </navigation>

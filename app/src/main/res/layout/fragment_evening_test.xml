@@ -103,9 +103,9 @@
                             android:id="@+id/evening_test_goals_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@={viewModel.goals}"
                             android:inputType="textMultiLine"
-                            android:minLines="3" />
+                            android:minLines="3"
+                            android:text="@={viewModel.goals}" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
@@ -137,36 +137,42 @@
                         android:id="@+id/evening_test_quality_strength"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="@={viewModel.strength}"
                         android:text="@string/evening_test_quality_strength_text" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/evening_test_quality_endurance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="@={viewModel.endurance}"
                         android:text="@string/evening_test_quality_endurance_text" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/evening_test_quality_plasticity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="@={viewModel.plasticity}"
                         android:text="@string/evening_test_quality_plasticity_text" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/evening_test_quality_coordination"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="@={viewModel.coordination}"
                         android:text="@string/evening_test_quality_coordination_text" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/evening_test_quality_dexterity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="@={viewModel.dexterity}"
                         android:text="@string/evening_test_quality_dexterity_text" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/evening_test_quality_technic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="@={viewModel.technic}"
                         android:text="@string/evening_test_quality_technic_text" />
 
                 </LinearLayout>

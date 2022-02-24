@@ -8,11 +8,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.dillab.sportdiary.data.local.DayResultsRoomDatabase
+import ru.dillab.sportdiary.data.local.DayResultsDatabase
 import ru.dillab.sportdiary.data.remote.DayResultsApi
 import ru.dillab.sportdiary.data.repository.DayResultRepositoryImpl
 import ru.dillab.sportdiary.domain.repository.DayResultRepository
-import ru.dillab.sportdiary.domain.use_case.GetDayResults
+import ru.dillab.sportdiary.domain.use_case.*
 import javax.inject.Singleton
 
 @Module
@@ -21,25 +21,33 @@ object DayResultModule {
 
     @Provides
     @Singleton
-    fun provideGetDayResultsUseCase(repository: DayResultRepository): GetDayResults {
-        return GetDayResults(repository)
+    fun provideDayResultUseCases(repository: DayResultRepository): DayResultUseCases {
+        return DayResultUseCases(
+            getDayResults = GetDayResults(repository),
+            getTodaysMorningResult = GetTodaysMorningResult(repository),
+            getTodaysEveningResult = GetTodaysEveningResult(repository),
+            addMorningResult = AddMorningResult(repository),
+            addEveningResult = AddEveningResult(repository)
+        )
     }
 
     @Provides
     @Singleton
-    fun provideDayResultRepository(
+    fun provideDayResultsRepository(
         api: DayResultsApi,
-        db: DayResultsRoomDatabase
+        db: DayResultsDatabase
     ): DayResultRepository {
         return DayResultRepositoryImpl(api, db.dao)
     }
 
     @Provides
     @Singleton
-    fun provideDayResultsRoomDatabase(app: Application): DayResultsRoomDatabase {
+    fun provideDayResultsDatabase(app: Application): DayResultsDatabase {
         return Room.databaseBuilder(
-            app, DayResultsRoomDatabase::class.java, "results_database"
-        ).build()
+            app, DayResultsDatabase::class.java, "results_database"
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     @Provides

@@ -7,8 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import ru.dillab.sportdiary.databinding.FragmentResultsBinding
 
 @AndroidEntryPoint
@@ -30,17 +35,29 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        lifecycleScope.launch {
+            viewModel.statusBar.collect {
+                binding.resultsStatusBar.text = it
+            }
+        }
+
         setupRecycleView()
     }
 
     private fun setupRecycleView() {
+        Log.d("testing", "setupRecycleView()")
         val recycleView = binding.resultsRecycleView
         recycleView.layoutManager = LinearLayoutManager(this.context)
         val adapter = ResultsAdapter()
         recycleView.adapter = adapter
-        viewModel.dayResults.observe(this.viewLifecycleOwner) {
-            Log.d("test", "submit")
-            adapter.submitList(it)
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.dayResults.collect {
+                    Log.d("testing", "viewModel.dayResults.collect")
+                    adapter.submitList(it)
+                }
+            }
         }
     }
 

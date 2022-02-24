@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import ru.dillab.sportdiary.databinding.FragmentMainBinding
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 class MainFragment : Fragment() {
@@ -28,59 +26,8 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.mainMenuTestsCard.setOnClickListener { openTestMenu() }
+        binding.mainMenuTestsCard.setOnClickListener { openTestsMenu() }
         binding.mainMenuResultsCard.setOnClickListener { openResults() }
-
-
-        val time = Calendar.getInstance().timeInMillis
-        val formatter = SimpleDateFormat("dd.MM.yy HH:mm:ss", Locale.US)
-        val year = SimpleDateFormat("yyMMddHH", Locale.US).format(time)
-        val month = SimpleDateFormat("MM", Locale.US).format(time)
-        val day = SimpleDateFormat("dd", Locale.US).format(time)
-        val hour = SimpleDateFormat("HH", Locale.US).format(time)
-
-        // val a = (year + month + day + hour).toInt()
-        val a = year.toInt()
-
-        // val properties = MutableLiveData<DayResultProperty>()
-
-        // lifecycleScope.launch {
-        //     try {
-        //         properties.value = DayResultApi.retrofitService.getGoogleSheetData()
-        //     } catch (e: Exception) {
-        //         properties.value = DayResultProperty(e.message ?: "", "no", mutableListOf(mutableListOf("no")))
-        //     }
-        // }
-
-
-
-        // val dayResults: LiveData<List<DayResult>> =
-        //     Transformations.map(properties, dayResult -> {
-        //         dayResults.value.
-        //
-        //
-        // }
-
-
-        // properties.observe(this.viewLifecycleOwner) {
-
-
-
-            // binding.date.text = properties.value.toString()
-            //
-            // val b = properties.value!!
-            // b.values[0].add("string")
-
-
-            // lifecycleScope.launch {
-            //     try {
-            //         DayResultApi.retrofitService.updateGoogleSheetData("asdf", "qewr")
-            //     } catch (e: Exception) {
-            //         Log.d("test", e.message.toString())
-            //     }
-            // }
-        // }
-
 
     }
 
@@ -89,7 +36,7 @@ class MainFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    private fun openTestMenu() {
+    private fun openTestsMenu() {
         val action = MainFragmentDirections.actionMainFragmentToTestsMenuFragment()
         findNavController().navigate(action)
     }
