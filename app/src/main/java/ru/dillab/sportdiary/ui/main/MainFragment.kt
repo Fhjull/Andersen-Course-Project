@@ -29,15 +29,16 @@ class MainFragment : Fragment() {
         binding.mainMenuTestsCard.setOnClickListener { openTestsMenu() }
         binding.mainMenuResultsCard.setOnClickListener { openResults() }
 
-    }
 
-    private fun openResults() {
-        val action = MainFragmentDirections.actionMainFragmentToResultsFragment()
-        findNavController().navigate(action)
     }
 
     private fun openTestsMenu() {
         val action = MainFragmentDirections.actionMainFragmentToTestsMenuFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun openResults() {
+        val action = MainFragmentDirections.actionMainFragmentToResultsFragment()
         findNavController().navigate(action)
     }
 

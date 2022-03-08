@@ -6,6 +6,10 @@
     <string name="evening_test_fragment_title">Вечерний блок</string>
     <string name="results_fragment_title">Результаты</string>
 
+    <string name="status_bar_loading">Загружаю данные</string>
+    <string name="status_bar_error">Ошибка</string>
+    <string name="status_bar_success">Данные обновлены</string>
+
     <string name="main_menu_tests_card_text">Заполнить Дневник</string>
     <string name="main_menu_results_card_text">Результаты</string>
     <string name="tests_menu_morning_test_card_text">Утренний тест</string>

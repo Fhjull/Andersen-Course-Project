@@ -1,4 +1,4 @@
-package ru.dillab.sportdiary
+package ru.dillab.sportdiary.utils
 
 import java.text.SimpleDateFormat
 import java.util.*

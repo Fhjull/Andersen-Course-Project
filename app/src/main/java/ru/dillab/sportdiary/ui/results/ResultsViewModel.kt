@@ -1,6 +1,5 @@
 package ru.dillab.sportdiary.ui.results
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,24 +22,22 @@ class ResultsViewModel @Inject constructor(private val useCases: DayResultUseCas
     private val _statusBar = MutableStateFlow("")
     val statusBar: StateFlow<String> = _statusBar
 
+    // TODO Remove hardcoded strings by proper implementation of DataBinding or entire change
+    // of statusBar implementation
     init {
         viewModelScope.launch {
             useCases.getDayResults().onEach { result ->
                 when (result) {
                     is ServerState.Loading -> {
-                        Log.d("testing", "ServerState.Success")
                         _dayResults.value = result.data ?: emptyList()
                         _statusBar.value = "Загружаю данные"
                     }
                     is ServerState.Error -> {
-                        Log.d("testing", "ServerState.Success")
                         _dayResults.value = result.data ?: emptyList()
                         _statusBar.value = result.message ?: "Ошибка"
                     }
                     is ServerState.Success -> {
-                        Log.d("testing", "ServerState.Success")
                         _dayResults.value = result.data ?: emptyList()
-                        Log.d("testing", "${result.data}")
                         _statusBar.value = "Данные обновлены"
                     }
                 }

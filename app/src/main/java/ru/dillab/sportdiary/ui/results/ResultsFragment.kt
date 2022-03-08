@@ -35,17 +35,19 @@ class ResultsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupStatusBar()
+        setupRecycleView()
+    }
+
+    private fun setupStatusBar() {
         lifecycleScope.launch {
             viewModel.statusBar.collect {
                 binding.resultsStatusBar.text = it
             }
         }
-
-        setupRecycleView()
     }
 
     private fun setupRecycleView() {
-        Log.d("testing", "setupRecycleView()")
         val recycleView = binding.resultsRecycleView
         recycleView.layoutManager = LinearLayoutManager(this.context)
         val adapter = ResultsAdapter()
@@ -54,7 +56,6 @@ class ResultsFragment : Fragment() {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.dayResults.collect {
-                    Log.d("testing", "viewModel.dayResults.collect")
                     adapter.submitList(it)
                 }
             }

@@ -1,19 +1,21 @@
-package ru.dillab.sportdiary.data.remote.dto
+package ru.dillab.sportdiary.data.local
 
 import ru.dillab.sportdiary.data.local.entity.EveningResultEntity
 import ru.dillab.sportdiary.data.local.entity.MorningResultEntity
 import ru.dillab.sportdiary.domain.model.DayResult
 
+// This class serves as helper to get data from ROOM database. If complex SQL query "getDayResults()
+// will be fixed, this class can be deleted
 data class MorningAndEveningResults(
     val morningResults: List<MorningResultEntity>,
     val eveningResults: List<EveningResultEntity>
 ) {
     fun toDayResults(): List<DayResult> {
         val listOfDayResults = mutableListOf<DayResult>()
-        val setOfId = mutableSetOf<Int>()
-        morningResults.forEach { setOfId.add(it.id) }
-        eveningResults.forEach { setOfId.add(it.id) }
-        setOfId.forEach { id ->
+        val setOfIds = mutableSetOf<Int>()
+        morningResults.forEach { setOfIds.add(it.id) }
+        eveningResults.forEach { setOfIds.add(it.id) }
+        setOfIds.forEach { id ->
             var morningData: MorningResultEntity? = null
             var eveningData: EveningResultEntity? = null
             morningResults.forEach { if (it.id == id) morningData = it }

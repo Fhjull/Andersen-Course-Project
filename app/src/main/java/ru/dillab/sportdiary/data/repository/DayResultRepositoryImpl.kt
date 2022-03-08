@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.map
 import retrofit2.HttpException
 import ru.dillab.sportdiary.data.local.DayResultDao
 import ru.dillab.sportdiary.data.remote.DayResultsApi
-import ru.dillab.sportdiary.data.remote.dto.MorningAndEveningResults
+import ru.dillab.sportdiary.data.local.MorningAndEveningResults
 import ru.dillab.sportdiary.domain.model.DayResult
 import ru.dillab.sportdiary.domain.model.EveningResult
 import ru.dillab.sportdiary.domain.model.MorningResult

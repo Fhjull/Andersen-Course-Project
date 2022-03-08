@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ru.dillab.sportdiary.domain.model.MorningResult
 import ru.dillab.sportdiary.domain.use_case.DayResultUseCases
-import ru.dillab.sportdiary.generateIdFromLong
+import ru.dillab.sportdiary.utils.generateIdFromLong
 import java.util.*
 import javax.inject.Inject
 

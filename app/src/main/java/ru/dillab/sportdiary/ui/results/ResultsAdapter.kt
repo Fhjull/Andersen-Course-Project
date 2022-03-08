@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.dillab.sportdiary.R
 import ru.dillab.sportdiary.databinding.ResultsItemBinding
 import ru.dillab.sportdiary.domain.model.DayResult
-import ru.dillab.sportdiary.formatLongToDateString
+import ru.dillab.sportdiary.utils.formatLongToDateString
 
 
 class ResultsAdapter : ListAdapter<DayResult, ResultsAdapter.ResultsViewHolder>(DiffCallback) {
@@ -47,11 +47,10 @@ class ResultsAdapter : ListAdapter<DayResult, ResultsAdapter.ResultsViewHolder>(
                 }
                 if (result.sleepHours != null) {
                     sleepHours.visibility = VISIBLE
-                    sleepHours.text =
-                        itemView.context.getString(
-                            R.string.item_night_sleep_text,
-                            result.sleepHours
-                        )
+                    sleepHours.text = itemView.context.getString(
+                        R.string.item_night_sleep_text,
+                        result.sleepHours
+                    )
                 } else {
                     sleepHours.visibility = GONE
                 }
